@@ -24,8 +24,28 @@ function getSourceWithSourceCodeLocation({
     nodeIndex++;
   }
 
+  const startOffsetSet = new Set();
+
   const sortedNodes = allNodes
-    .filter((node) => htmlTags.includes(node?.nodeName))
+    .filter((node) => {
+      if (!node?.sourceCodeLocation?.startOffset) {
+        return false;
+      }
+
+      const { startOffset } = node.sourceCodeLocation;
+
+      if (startOffsetSet.has(startOffset)) {
+        return false;
+      }
+
+      startOffsetSet.add(startOffset);
+
+      if (!htmlTags.includes(node?.nodeName)) {
+        return false;
+      }
+
+      return true;
+    })
     .sort(
       (a, b) =>
         b.sourceCodeLocation.startOffset - a.sourceCodeLocation.startOffset

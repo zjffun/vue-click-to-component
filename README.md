@@ -48,7 +48,7 @@ Even though `vue-click-to-component` is added to `dependencies`, [tree-shaking](
 <details>
 <summary>Vite</summary>
 
-[`vite.config.ts`](https://github.com/zjffun/vue-click-to-component/blob/main/examples/vite/vite.config.ts#L7)
+[`vite.config.ts`](./examples/vite/vite.config.ts#L7)
 
 ```diff
 +import { defineConfig } from 'vite'
@@ -62,7 +62,7 @@ export default defineConfig({
 })
 ```
 
-[`main.ts`](https://github.com/zjffun/vue-click-to-component/blob/main/examples/vite/src/main.ts#L4)
+[`main.ts`](./examples/vite/src/main.ts#L4)
 
 ```diff
 import { createApp } from 'vue'
@@ -78,7 +78,7 @@ createApp(App).mount('#app')
 <details>
 <summary>Vue CLI</summary>
 
-[`vue.config.js`](./examples/vue-cli/vue.config.js)
+[`vue.config.js`](./examples/vue-cli/vue.config.js#L6-L8)
 
 ```diff
 const { defineConfig } = require("@vue/cli-service");
@@ -92,7 +92,7 @@ module.exports = defineConfig({
 });
 ```
 
-[`main.js`](examples/vue-cli/src/main.js)
+[`main.js`](./examples/vue-cli/src/main.js#L3)
 
 ```diff
 import Vue from 'vue'
@@ -111,6 +111,8 @@ new Vue({
 <details>
 <summary>webpack</summary>
 
+[`webpack.config.js`](./examples/webpack/webpack.config.js#L31-L35)
+
 ```diff
 module: {
   rules: [
@@ -127,6 +129,8 @@ module: {
 },
 ```
 
+[`main.js`](./examples/webpack/src/index.js#L3)
+
 ```diff
 import { createApp } from "vue";
 import App from "./App.vue";
@@ -134,6 +138,8 @@ import App from "./App.vue";
 
 createApp(App).mount("#app");
 ```
+
+[`package.json`](./examples/webpack/package.json#L10)
 
 ```diff
 "scripts": {
