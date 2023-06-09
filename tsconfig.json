@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "target": "ES5",
+    "module": "CommonJS",
+    "lib": ["esnext"],
+    "esModuleInterop": true,
+    "outDir": "dist",
+    "allowJs": true,
+    "skipLibCheck": true,
+    "downlevelIteration": true,
+    "declaration": true,
+    "moduleResolution": "Node"
+  },
+  "include": ["src/**/*.ts", "typings.d.ts"],
+  "exclude": ["node_modules"]
+}
