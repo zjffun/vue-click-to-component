@@ -150,13 +150,64 @@ createApp(App).mount("#app");
 
 </details>
 
-### `editor`
+### Visual Studio Code Insiders
 
-By default, clicking will default `editor` to [`vscode`](https://code.visualstudio.com/).
+By default, clicking will default editor to [`vscode`](https://code.visualstudio.com/).
 
-If, like me, you use [`vscode-insiders`](https://code.visualstudio.com/insiders/), you can set `editor` explicitly:
+If you use [`vscode-insiders`](https://code.visualstudio.com/insiders/), you can set editor like:
 
 ```diff
 import 'vue-click-to-component/client';
-+window.__VUE_CLICK_TO_COMPONENT_EDITOR__ = 'vscode-insiders';
+
++if (process.env.NODE_ENV === 'development') {
++  window.__VUE_CLICK_TO_COMPONENT_URL_FUNCTION__ = function ({
++    sourceCodeLocation
++  }) {
++    return `vscode-insiders://file/${sourceCodeLocation}`;
++  };
++}
+```
+
+### WSL
+
+If you use [WSL](https://docs.microsoft.com/en-us/windows/wsl/), you can set path like:
+
+```diff
+import 'vue-click-to-component/client';
+
++if (process.env.NODE_ENV === 'development') {
++  window.__VUE_CLICK_TO_COMPONENT_URL_FUNCTION__ = function ({
++    sourceCodeLocation
++  }) {
++    // change to your WSL system
++    const system = 'ubuntu-22.04';
++    return `vscode://vscode-remote/wsl+${system}/${sourceCodeLocation}`;
++  };
++}
+```
+
+### Docker
+
+If you use [Docker](https://www.docker.com/) development environment, you can fix path like:
+
+```diff
+import 'vue-click-to-component/client';
+
++if (process.env.NODE_ENV === 'development') {
++  window.__VUE_CLICK_TO_COMPONENT_URL_FUNCTION__ = function ({
++    sourceCodeLocation
++  }) {
++    // change to your docker work dir
++    const dockerWorkDir = '/usr/src/app';
++    // change to your local work dir
++    const workDir = '/Users/zjf/gh/vue-click-to-component/examples/vite';
++
++    let realSourceCodeLocation = sourceCodeLocation;
++    if (realSourceCodeLocation.startsWith(dockerWorkDir)) {
++      realSourceCodeLocation = `${workDir}${realSourceCodeLocation.slice(dockerWorkDir.length)}`;
++    }
++
++    return `vscode://file/${realSourceCodeLocation}`;
++  };
++}
 ```

@@ -21,14 +21,6 @@ if (process.env.NODE_ENV === "development") {
     return el;
   }
 
-  function getSourceCodeLocation(el) {
-    const _el = getElWithSourceCodeLocation(el);
-    if (!_el) {
-      return null;
-    }
-    return _el.dataset.__sourceCodeLocation;
-  }
-
   function setTarget(el) {
     let _el = getElWithSourceCodeLocation(el);
 
@@ -67,19 +59,45 @@ if (process.env.NODE_ENV === "development") {
         e.stopPropagation();
         e.stopImmediatePropagation();
 
-        const sourceCodeLocation = getSourceCodeLocation(e.target);
-        if (!sourceCodeLocation) {
+        const elWithSourceCodeLocation = getElWithSourceCodeLocation(e.target);
+        if (!elWithSourceCodeLocation) {
           return;
         }
 
-        let editor = "vscode";
-        if (typeof window.__VUE_CLICK_TO_COMPONENT_EDITOR__ === "string") {
-          editor = window.__VUE_CLICK_TO_COMPONENT_EDITOR__;
-        }
+        const sourceCodeLocation =
+          elWithSourceCodeLocation.dataset.__sourceCodeLocation;
 
-        window.open(`${editor}://file/${sourceCodeLocation}`);
+        // __VUE_CLICK_TO_COMPONENT_URL_FUNCTION__ can be async
+        const urlPromise = Promise.resolve().then(() => {
+          if (
+            typeof window.__VUE_CLICK_TO_COMPONENT_URL_FUNCTION__ !== "function"
+          ) {
+            return `vscode://file/${sourceCodeLocation}`;
+          }
 
-        cleanTarget();
+          return window.__VUE_CLICK_TO_COMPONENT_URL_FUNCTION__({
+            sourceCodeLocation,
+            element: elWithSourceCodeLocation,
+          });
+        });
+
+        urlPromise
+          .then((url) => {
+            if (!url) {
+              console.error(
+                "[vue-click-to-component] url is empty, please check __VUE_CLICK_TO_COMPONENT_URL_FUNCTION__"
+              );
+              return;
+            }
+
+            window.open(url);
+          })
+          .catch((e) => {
+            console.error(e);
+          })
+          .finally(() => {
+            cleanTarget();
+          });
       }
     },
     true
