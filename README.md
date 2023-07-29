@@ -216,7 +216,7 @@ import 'vue-click-to-component/client';
 +}
 ```
 
-# WebStorm
+### WebStorm
 
 If you use [WebStorm](https://www.jetbrains.com/webstorm/), you can set URL like:
 
