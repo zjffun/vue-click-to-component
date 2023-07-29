@@ -170,7 +170,11 @@ import 'vue-click-to-component/client';
 
 ### WSL
 
-If you use [WSL](https://docs.microsoft.com/en-us/windows/wsl/), you can set path like:
+If you use [WSL](https://docs.microsoft.com/en-us/windows/wsl/), you can set URL like:
+
+You can find your WSL target in the `Remote Explorer` panel of VSCode.
+
+<img src="./images/wsl-target.webp" width="200" />
 
 ```diff
 import 'vue-click-to-component/client';
@@ -179,9 +183,9 @@ import 'vue-click-to-component/client';
 +  window.__VUE_CLICK_TO_COMPONENT_URL_FUNCTION__ = function ({
 +    sourceCodeLocation
 +  }) {
-+    // Please change to your WSL system
-+    const system = 'ubuntu-22.04';
-+    return `vscode://vscode-remote/wsl+${system}/${sourceCodeLocation}`;
++    // Please change to your WSL target
++    const wslTarget = 'Ubuntu-22.04';
++    return `vscode://vscode-remote/wsl+${wslTarget}/${sourceCodeLocation}`;
 +  };
 +}
 ```
