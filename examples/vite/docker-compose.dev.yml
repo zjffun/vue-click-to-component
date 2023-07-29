@@ -5,7 +5,7 @@ services:
       dockerfile: Dockerfile.dev
       target: development
     ports:
-      - 8080:8080
+      - 5173:5173
     volumes:
       - .:/usr/src/app
       - /usr/src/app/node_modules

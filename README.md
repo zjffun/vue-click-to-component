@@ -179,7 +179,7 @@ import 'vue-click-to-component/client';
 +  window.__VUE_CLICK_TO_COMPONENT_URL_FUNCTION__ = function ({
 +    sourceCodeLocation
 +  }) {
-+    // change to your WSL system
++    // Please change to your WSL system
 +    const system = 'ubuntu-22.04';
 +    return `vscode://vscode-remote/wsl+${system}/${sourceCodeLocation}`;
 +  };
@@ -197,9 +197,9 @@ import 'vue-click-to-component/client';
 +  window.__VUE_CLICK_TO_COMPONENT_URL_FUNCTION__ = function ({
 +    sourceCodeLocation
 +  }) {
-+    // change to your docker work dir
++    // Please change to your docker work dir
 +    const dockerWorkDir = '/usr/src/app';
-+    // change to your local work dir
++    // Please change to your local work dir
 +    const workDir = '/Users/zjf/gh/vue-click-to-component/examples/vite';
 +
 +    let realSourceCodeLocation = sourceCodeLocation;
@@ -208,6 +208,25 @@ import 'vue-click-to-component/client';
 +    }
 +
 +    return `vscode://file/${realSourceCodeLocation}`;
++  };
++}
+```
+
+# WebStorm
+
+If you use [WebStorm](https://www.jetbrains.com/webstorm/), you can set URL like:
+
+(PS: According to my test, the file can be opened, but the lines and columns do not take effect. If anyone knows how to make lines and columns work please tell me, thanks.)
+
+```diff
+import 'vue-click-to-component/client';
+
++if (process.env.NODE_ENV === 'development') {
++  window.__VUE_CLICK_TO_COMPONENT_URL_FUNCTION__ = function ({
++    sourceCodeLocation
++  }) {
++    const [path, line, column] = sourceCodeLocation.split(':');
++    return `webstorm://open?file=${path}&line=${line}&column=${column}`;
 +  };
 +}
 ```
