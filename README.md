@@ -150,13 +150,87 @@ createApp(App).mount("#app");
 
 </details>
 
-### `editor`
+### Visual Studio Code Insiders
 
-By default, clicking will default `editor` to [`vscode`](https://code.visualstudio.com/).
+By default, clicking will default editor to [`vscode`](https://code.visualstudio.com/).
 
-If, like me, you use [`vscode-insiders`](https://code.visualstudio.com/insiders/), you can set `editor` explicitly:
+If you use [`vscode-insiders`](https://code.visualstudio.com/insiders/), you can set editor like:
 
 ```diff
 import 'vue-click-to-component/client';
-+window.__VUE_CLICK_TO_COMPONENT_EDITOR__ = 'vscode-insiders';
+
++if (process.env.NODE_ENV === 'development') {
++  window.__VUE_CLICK_TO_COMPONENT_URL_FUNCTION__ = function ({
++    sourceCodeLocation
++  }) {
++    return `vscode-insiders://file/${sourceCodeLocation}`;
++  };
++}
 ```
+
+### WSL
+
+If you use [WSL](https://docs.microsoft.com/en-us/windows/wsl/), you can set URL like:
+
+```diff
+import 'vue-click-to-component/client';
+
++if (process.env.NODE_ENV === 'development') {
++  window.__VUE_CLICK_TO_COMPONENT_URL_FUNCTION__ = function ({
++    sourceCodeLocation
++  }) {
++    // Please change to your WSL target
++    const wslTarget = 'Ubuntu-22.04';
++    return `vscode://vscode-remote/wsl+${wslTarget}/${sourceCodeLocation}`;
++  };
++}
+```
+
+You can find your WSL target in the `Remote Explorer` panel of VSCode.
+
+<img src="./images/wsl-target.webp" width="200" />
+
+### Docker
+
+If you use [Docker](https://www.docker.com/) development environment, you can fix path like:
+
+```diff
+import 'vue-click-to-component/client';
+
++if (process.env.NODE_ENV === 'development') {
++  window.__VUE_CLICK_TO_COMPONENT_URL_FUNCTION__ = function ({
++    sourceCodeLocation
++  }) {
++    // Please change to your docker work dir
++    const dockerWorkDir = '/usr/src/app';
++    // Please change to your local work dir
++    const workDir = '/Users/zjf/gh/vue-click-to-component/examples/vite';
++
++    let realSourceCodeLocation = sourceCodeLocation;
++    if (realSourceCodeLocation.startsWith(dockerWorkDir)) {
++      realSourceCodeLocation = `${workDir}${realSourceCodeLocation.slice(dockerWorkDir.length)}`;
++    }
++
++    return `vscode://file/${realSourceCodeLocation}`;
++  };
++}
+```
+
+# WebStorm
+
+If you use [WebStorm](https://www.jetbrains.com/webstorm/), you can set URL like:
+
+```diff
+import 'vue-click-to-component/client';
+
++if (process.env.NODE_ENV === 'development') {
++  window.__VUE_CLICK_TO_COMPONENT_URL_FUNCTION__ = function ({
++    sourceCodeLocation
++  }) {
++    const [path, line, column] = sourceCodeLocation.split(':');
++    return `webstorm://open?file=${path}&line=${line}&column=${column}`;
++  };
++}
+```
+
+PS: According to my test, the file can be opened, but the lines and columns do not take effect. If anyone knows how to make lines and columns work please tell me, thanks.
