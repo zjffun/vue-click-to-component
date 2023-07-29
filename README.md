@@ -172,10 +172,6 @@ import 'vue-click-to-component/client';
 
 If you use [WSL](https://docs.microsoft.com/en-us/windows/wsl/), you can set URL like:
 
-You can find your WSL target in the `Remote Explorer` panel of VSCode.
-
-<img src="./images/wsl-target.webp" width="200" />
-
 ```diff
 import 'vue-click-to-component/client';
 
@@ -189,6 +185,10 @@ import 'vue-click-to-component/client';
 +  };
 +}
 ```
+
+You can find your WSL target in the `Remote Explorer` panel of VSCode.
+
+<img src="./images/wsl-target.webp" width="200" />
 
 ### Docker
 
@@ -220,8 +220,6 @@ import 'vue-click-to-component/client';
 
 If you use [WebStorm](https://www.jetbrains.com/webstorm/), you can set URL like:
 
-(PS: According to my test, the file can be opened, but the lines and columns do not take effect. If anyone knows how to make lines and columns work please tell me, thanks.)
-
 ```diff
 import 'vue-click-to-component/client';
 
@@ -234,3 +232,5 @@ import 'vue-click-to-component/client';
 +  };
 +}
 ```
+
+PS: According to my test, the file can be opened, but the lines and columns do not take effect. If anyone knows how to make lines and columns work please tell me, thanks.
