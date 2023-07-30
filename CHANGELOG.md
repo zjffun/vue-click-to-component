@@ -1,3 +1,7 @@
+# v0.2.1
+
+Add zh-CN Readme.
+
 # v0.2.0
 
 - Add `__VUE_CLICK_TO_COMPONENT_URL_FUNCTION__` global config.
