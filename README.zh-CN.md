@@ -2,19 +2,19 @@
 
 [![npm](https://img.shields.io/npm/v/vue-click-to-component)](https://www.npmjs.com/package/vue-click-to-component)
 
-English | [简体中文](./README.zh-CN.md)
+[English](./README.md) | 简体中文
 
-<kbd>Option+Click</kbd>(<kbd>Alt+Click</kbd>) a Component in the browser to **instantly** goto the source in your editor.
+在浏览器中按住 <kbd>Option</kbd>(<kbd>Alt</kbd>) 点击组件，**立即**在编辑器中打开对应代码。
 
 ![Vite Demo](./images/vite.webp)
 
-## Features
+## 功能
 
-- <kbd>Option+Click</kbd>(<kbd>Alt+Click</kbd>) opens the immediate Component's source
-- Supports `vscode`, `vscode-insiders` and `webstorm`'s [URL handling](https://code.visualstudio.com/docs/editor/command-line#_opening-vs-code-with-urls)
-- Automatically **tree-shaken** from `production` builds
+- 按住 <kbd>Option</kbd>(<kbd>Alt</kbd>) 点击打开组件对应的代码
+- 支持 `vscode`、 `vscode-insiders` 和 `webstorm` 的 [URL 打开](https://code.visualstudio.com/docs/editor/command-line#_opening-vs-code-with-urls)
+- 自动“摇树优化”，不会打包到生产代码中
 
-## Installation
+## 安装
 
 ### npm
 
@@ -34,9 +34,9 @@ pnpm add vue-click-to-component
 yarn add vue-click-to-component
 ```
 
-Even though `vue-click-to-component` is added to `dependencies`, [tree-shaking](https://esbuild.github.io/api/#tree-shaking) will remove `vue-click-to-component` from `production` builds.
+虽然 `vue-click-to-component` 安装到了生产依赖，但[摇树优化](https://esbuild.github.io/api/#tree-shaking)会将 `vue-click-to-component` 在生产打包中移除.
 
-## Usage
+## 使用
 
 ### Vite
 
@@ -134,14 +134,14 @@ createApp(App).mount("#app");
 },
 ```
 
-### Configure the URL to open the editor
+### 配置打开编辑器的 URL
 
-By default, clicking will open [`vscode`](https://code.visualstudio.com/), and generally does not need the following configuration. Those configurations are only required if the following situations are used.
+默认情况点击会打开 [`vscode`](https://code.visualstudio.com/)，一般不需要下面的配置。只有使用了下面这些情况才需要配置。
 
 <details>
 <summary>Visual Studio Code Insiders</summary>
 
-If you use [`vscode-insiders`](https://code.visualstudio.com/insiders/), you can set editor like:
+如果你使用 [`vscode-insiders`](https://code.visualstudio.com/insiders/)，可以像下面这样修改编辑器：
 
 ```diff
 import 'vue-click-to-component/client';
@@ -160,7 +160,7 @@ import 'vue-click-to-component/client';
 <details>
 <summary>WSL</summary>
 
-If you use [WSL](https://docs.microsoft.com/en-us/windows/wsl/), you can set URL like:
+如果你使用 [WSL](https://docs.microsoft.com/en-us/windows/wsl/)，你可以像下面这样设置 URL：
 
 ```diff
 import 'vue-click-to-component/client';
@@ -176,7 +176,7 @@ import 'vue-click-to-component/client';
 +}
 ```
 
-You can find your WSL target in the `Remote Explorer` panel of VSCode.
+你可以在 VS Code 的 `Remote Explorer` 面板找到你的 WSL 目标。
 
 <img src="./images/wsl-target.webp" width="200" />
 
@@ -185,7 +185,7 @@ You can find your WSL target in the `Remote Explorer` panel of VSCode.
 <details>
 <summary>Docker</summary>
 
-If you use [Docker](https://www.docker.com/) development environment, you can fix path like:
+如果你使用 [Docker](https://www.docker.com/) 开发环境，你可以像下面这样修正路径：
 
 ```diff
 import 'vue-click-to-component/client';
@@ -214,7 +214,7 @@ import 'vue-click-to-component/client';
 <details>
 <summary>WebStorm</summary>
 
-If you use [WebStorm](https://www.jetbrains.com/webstorm/), you can set URL like:
+如果你使用 [WebStorm](https://www.jetbrains.com/webstorm/)，你可以像下面这样设置 URL：
 
 ```diff
 import 'vue-click-to-component/client';
@@ -229,6 +229,6 @@ import 'vue-click-to-component/client';
 +}
 ```
 
-PS: According to my test, the file can be opened, but the lines and columns do not take effect. If anyone knows how to make lines and columns work please tell me, thanks.
+注：根据我的测试，文件可以打开，但是行列不生效。如果有谁知道如何让行列生效，请教给我一下，谢谢。
 
 </details>
