@@ -43,9 +43,9 @@ yarn add vue-click-to-component
 [`vite.config.ts`](./examples/vite/vite.config.ts#L7)
 
 ```diff
-+import { defineConfig } from 'vite'
+import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
-import vueClickToComponent from 'vue-click-to-component/vite-plugin';
++import vueClickToComponent from 'vue-click-to-component/vite-plugin';
 
 // https://vitejs.dev/config/
 export default defineConfig({
