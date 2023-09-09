@@ -2,13 +2,26 @@
   "name": "vue-click-to-component",
   "version": "0.2.1",
   "description": "Option+Click(Alt+Click) Vue components in your browser to instantly open the source in VS Code.",
+  "keywords": [
+    "vscode",
+    "devtools",
+    "vue",
+    "webpack",
+    "vue-cli",
+    "vite"
+  ],
+  "homepage": "https://github.com/zjffun/vue-click-to-component#readme",
+  "bugs": {
+    "url": "https://github.com/zjffun/vue-click-to-component/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zjffun/vue-click-to-component.git"
+  },
+  "license": "MIT",
+  "author": "Jufeng Zhang <zjffun@gmail.com>",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "repository": "git@github.com:zjffun/vue-click-to-component.git",
-  "scripts": {
-    "prepublishOnly": "yarn build",
-    "build": "rimraf dist && tsc"
-  },
   "files": [
     "loader.js",
     "vite-plugin.js",
@@ -18,13 +31,15 @@
     "dist",
     "src"
   ],
+  "scripts": {
+    "prepublishOnly": "yarn build",
+    "build": "rimraf dist && tsc"
+  },
   "dependencies": {
     "html-tags": "^3.3.1",
     "parse5": "^7.1.2"
   },
   "devDependencies": {
     "rimraf": "^5.0.1"
-  },
-  "author": "Jufeng Zhang <zjffun@gmail.com>",
-  "license": "MIT"
+  }
 }
