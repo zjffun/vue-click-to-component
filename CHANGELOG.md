@@ -1,3 +1,7 @@
+# v0.2.2
+
+Update doc and `package.json`.
+
 # v0.2.1
 
 Add zh-CN Readme.
