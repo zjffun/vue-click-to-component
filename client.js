@@ -1,5 +1,5 @@
 if (process.env.NODE_ENV === "development") {
-  console.warn("vue-click-to-component enabled in development mode");
+  console.warn("[vue-click-to-component] enabled");
 
   function cleanTarget() {
     document

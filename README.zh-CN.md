@@ -232,3 +232,21 @@ import 'vue-click-to-component/client';
 注：根据我的测试，文件可以打开，但是行列不生效。如果有谁知道如何让行列生效，请教给我一下，谢谢。
 
 </details>
+
+### 强制开启
+
+默认情况下，这个工具只有在开发环境（`NODE_ENV` 为 `development`）才会开启。如果你想在生产环境也开启，可以像下面这样配置：
+
+`main.ts`:
+
+```diff
+-import 'vue-click-to-component/client';
++import 'vue-click-to-component/client-force-enable';
+```
+
+`package.json`:
+
+```diff
+-"build": "vue-tsc && vite build",
++"build": "vue-tsc && VUE_CLICK_TO_COMPONENT_FORCE_ENABLE=true vite build",
+```

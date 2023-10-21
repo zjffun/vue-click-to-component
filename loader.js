@@ -2,7 +2,11 @@ const { getSourceWithSourceCodeLocation } = require("./dist/index.js");
 const htmlTags = require("html-tags");
 
 module.exports = function (source) {
-  if (process.env.NODE_ENV !== "development") {
+  if (
+    process.env.VUE_CLICK_TO_COMPONENT_FORCE_ENABLE !== "true" &&
+    process.env.NODE_ENV !== "development"
+  ) {
+    // disable loader
     return source;
   }
 
@@ -16,7 +20,7 @@ module.exports = function (source) {
 
     return sourceWithSourceCodeLocation;
   } catch (error) {
-    console.error("[vite-plugin-click-to-component] error", {
+    console.error("[vue-click-to-component-loader] error", {
       file: id,
       error: error && error.message,
     });

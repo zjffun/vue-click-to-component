@@ -28,12 +28,14 @@
     "vue-cli-plugin.js",
     "client.js",
     "client.d.ts",
+    "client-force-enable.js",
+    "client-force-enable.d.ts",
     "dist",
     "src"
   ],
   "scripts": {
     "prepublishOnly": "yarn build",
-    "build": "rimraf dist && tsc",
+    "build": "rimraf dist && tsc && node ./build/client-force-enable.mjs",
     "fix-registry": "replace-lockfile-registry --registry https://registry.npmjs.org/"
   },
   "dependencies": {

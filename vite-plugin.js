@@ -7,7 +7,11 @@ module.exports = function vitePlugin() {
     name: "vite-plugin-click-to-component",
     enforce: "pre",
     load(id) {
-      if (process.env.NODE_ENV !== "development") {
+      if (
+        process.env.VUE_CLICK_TO_COMPONENT_FORCE_ENABLE !== "true" &&
+        process.env.NODE_ENV !== "development"
+      ) {
+        // disable vite plugin
         return;
       }
 
@@ -22,7 +26,7 @@ module.exports = function vitePlugin() {
 
           return sourceWithSourceCodeLocation;
         } catch (error) {
-          console.error("[vite-plugin-click-to-component] error", {
+          console.error("[vue-click-to-component-vite-plugin] error", {
             file: id,
             error: error && error.message,
           });
