@@ -232,3 +232,21 @@ import 'vue-click-to-component/client';
 PS: According to my test, the file can be opened, but the lines and columns do not take effect. If anyone knows how to make lines and columns work please tell me, thanks.
 
 </details>
+
+### Force enable
+
+By default, this tool is only enabled in the development environment (`NODE_ENV` is `development`). If you want to enable it in the production environment, you can configure it like below:
+
+`main.ts`:
+
+```diff
+-import 'vue-click-to-component/client';
++import 'vue-click-to-component/client-force-enable';
+```
+
+`package.json`:
+
+```diff
+-"build": "vue-tsc && vite build",
++"build": "vue-tsc && VUE_CLICK_TO_COMPONENT_FORCE_ENABLE=true vite build",
+```
