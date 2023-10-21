@@ -1,3 +1,7 @@
+# v0.3.0
+
+Add features manual force enable.
+
 # v0.2.2
 
 Update doc and `package.json`.
