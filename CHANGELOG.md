@@ -1,3 +1,7 @@
+# v0.3.1
+
+Fix URI. [#4](https://github.com/zjffun/vue-click-to-component/issues/4)
+
 # v0.3.0
 
 Add features manual force enable.
