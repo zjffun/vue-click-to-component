@@ -4,9 +4,11 @@
 
 English | [简体中文](./README.zh-CN.md)
 
-<kbd>Option+Click</kbd>(<kbd>Alt+Click</kbd>) a Component in the browser to **instantly** goto the source in your editor.
+<kbd>Option+Click</kbd>(<kbd>Alt+Click</kbd>) a element in the browser to **instantly** goto the source in your editor.
 
 ![Vite Demo](./images/vite.webp)
+
+<kbd>Option+RightClick</kbd>(<kbd>Alt+RightClick</kbd>) opens a context menu with the parent elements.
 
 ## Features
 

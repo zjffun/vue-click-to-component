@@ -1,6 +1,6 @@
 # v0.3.2
 
-Add feature Alt+RightClick to open the element list.
+Add Alt+RightClick to open the element list feature.
 
 # v0.3.1
 
