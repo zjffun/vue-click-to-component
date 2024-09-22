@@ -47,7 +47,7 @@ if (process.env.NODE_ENV === "development") {
       -webkit-focus-ring-color auto 1px
     ) !important;
   }
-</style>`
+</style>`,
   );
 
   /* --- open --- */
@@ -90,7 +90,7 @@ if (process.env.NODE_ENV === "development") {
           .then((url) => {
             if (!url) {
               console.error(
-                "[vue-click-to-component] url is empty, please check __VUE_CLICK_TO_COMPONENT_URL_FUNCTION__"
+                "[vue-click-to-component] url is empty, please check __VUE_CLICK_TO_COMPONENT_URL_FUNCTION__",
               );
               return;
             }
@@ -105,7 +105,7 @@ if (process.env.NODE_ENV === "development") {
           });
       }
     },
-    true
+    true,
   );
 
   /* --- set target --- */
@@ -118,7 +118,7 @@ if (process.env.NODE_ENV === "development") {
         setTarget(e.target);
       }
     },
-    true
+    true,
   );
 
   /* --- clean target --- */
@@ -129,7 +129,7 @@ if (process.env.NODE_ENV === "development") {
         cleanTarget();
       }
     },
-    true
+    true,
   );
 
   window.addEventListener(
@@ -137,6 +137,6 @@ if (process.env.NODE_ENV === "development") {
     () => {
       cleanTarget();
     },
-    true
+    true,
   );
 }

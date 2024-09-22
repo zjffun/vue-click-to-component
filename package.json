@@ -39,7 +39,7 @@
   ],
   "scripts": {
     "prepublishOnly": "yarn build",
-    "build": "rimraf dist && tsc && node ./build/client-force-enable.mjs",
+    "build": "rimraf dist && tsc && node ./tools/client-force-enable.mjs",
     "eslint-fix": "eslint --fix .",
     "prettier-fix": "prettier --write .",
     "registry-fix": "replace-lockfile-registry --registry https://registry.npmjs.org/",

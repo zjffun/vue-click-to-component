@@ -18,7 +18,7 @@ function getSourceWithSourceCodeLocation({
   while (allNodes.length > nodeIndex) {
     allNodes = allNodes.concat(
       allNodes[nodeIndex]?.childNodes || [],
-      allNodes[nodeIndex]?.content?.childNodes || []
+      allNodes[nodeIndex]?.content?.childNodes || [],
     );
 
     nodeIndex++;
@@ -48,7 +48,7 @@ function getSourceWithSourceCodeLocation({
     })
     .sort(
       (a, b) =>
-        b.sourceCodeLocation.startOffset - a.sourceCodeLocation.startOffset
+        b.sourceCodeLocation.startOffset - a.sourceCodeLocation.startOffset,
     );
 
   let result = source;
