@@ -4159,10 +4159,10 @@ vary@~1.1.2:
   resolved "https://registry.npmmirror.com/vary/-/vary-1.1.2.tgz#2299f02c6ded30d4a5961b0b9f74524a18f634fc"
   integrity sha512-BNGbWLfd0eUPabhkXUVm0j8uuvREyTh5ovRa/dyow/BqAbZJyC+5fU+IzQOzmAKzYqYRAISoRhdQr3eIZ/PXqg==
 
-vue-click-to-component@^0.1.0:
-  version "0.1.0"
-  resolved "https://registry.npmjs.org/vue-click-to-component/-/vue-click-to-component-0.1.0.tgz#f991718673d495e62c311dfa28fd0f998683aa24"
-  integrity sha512-Ni1C8qq813xAj7v4a7AWcuDMlrEEvD0w9PBOp+QPrsCKiHOsVQu9BKQ44AJ85L6WZlHEpRIuXOWeTDrdwduluQ==
+vue-click-to-component@^0.3.2:
+  version "0.3.2"
+  resolved "https://registry.yarnpkg.com/vue-click-to-component/-/vue-click-to-component-0.3.2.tgz#eb5058b4669e1253af7668fdc6bc7b6d63010f32"
+  integrity sha512-00oDwCnywjhsebbY3wByaf1nTqcJoDYY6mGTCtupfIoHKnKJjh4edn6dgU1M7yA7LmBZ5tLmdU0EUo0gpjrG8Q==
   dependencies:
     html-tags "^3.3.1"
     parse5 "^7.1.2"
