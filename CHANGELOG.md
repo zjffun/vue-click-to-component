@@ -1,3 +1,7 @@
+# v0.3.2
+
+Add feature Alt+RightClick to open the element list.
+
 # v0.3.1
 
 Fix URI. [#4](https://github.com/zjffun/vue-click-to-component/issues/4)
