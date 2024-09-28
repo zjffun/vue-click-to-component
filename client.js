@@ -390,12 +390,6 @@ if (process.env.NODE_ENV === "development") {
 
     margin: 0;
   }
-
-  @supports (inset-area: bottom) {
-    vue-click-to-component-popover {
-      inset-area: bottom;
-    }
-  }
 </style>
 <vue-click-to-component-popover popover="manual" vue-click-to-component-ignore-alt-click></vue-click-to-component-popover>`,
     );
