@@ -40,6 +40,8 @@ Even though `vue-click-to-component` is added to `dependencies`, [tree-shaking](
 
 ## Usage
 
+**If you are using [Click To Component Chrome Extension](https://chromewebstore.google.com/detail/click-to-component/hdiiegojkjkgaakbdjpoaaadhnddpfdc), you will not need to add `import 'vue-click-to-component/client';` in `main.ts/js`.**
+
 ### Vite
 
 [`vite.config.ts`](./examples/vite/vite.config.ts#L7)

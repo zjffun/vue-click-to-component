@@ -38,6 +38,8 @@ yarn add vue-click-to-component
 
 ## 使用
 
+**如果你正在使用 [Click To Component Chrome 拓展程序](https://chromewebstore.google.com/detail/click-to-component/hdiiegojkjkgaakbdjpoaaadhnddpfdc) 则不需要在 `main.ts/js` 中添加 `import 'vue-click-to-component/client';`。**
+
 ### Vite
 
 [`vite.config.ts`](./examples/vite/vite.config.ts#L7)
