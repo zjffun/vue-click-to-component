@@ -6,7 +6,10 @@ if (process.env.NODE_ENV === "development") {
   }
 
   function cleanTarget(type) {
-    let targetElList = [];
+    /**
+     * @type {NodeListOf<Element>}
+     */
+    let targetElList
 
     if (type) {
       targetElList = document.querySelectorAll(
@@ -23,8 +26,12 @@ if (process.env.NODE_ENV === "development") {
     });
   }
 
+  /**
+ * @param {MouseEvent} clickEvent 
+ * @returns {boolean}  
+ */
   function checkHandleAltClick(clickEvent) {
-    if (!clickEvent.altKey || !clickEvent.button === 0) {
+    if (!clickEvent.altKey || clickEvent.button !== 0) {
       return false;
     }
 
@@ -75,8 +82,7 @@ if (process.env.NODE_ENV === "development") {
       }
 
       return window.__VUE_CLICK_TO_COMPONENT_URL_FUNCTION__({
-        sourceCodeLocation,
-        element: elWithSourceCodeLocation,
+        sourceCodeLocation
       });
     });
 
@@ -100,7 +106,7 @@ if (process.env.NODE_ENV === "development") {
   }
 
   // this funciton will update after vue-click-to-component-popover is defined
-  function hidePopover() {}
+  function hidePopover() { }
 
   // Alt+Click CSS
   document.head.insertAdjacentHTML(
@@ -424,7 +430,8 @@ if (process.env.NODE_ENV === "development") {
           setAnchor(elListWithSourceCodeLocationList[0]);
           vueClickToComponentPopoverEl.showPopover();
 
-          document.activeElement.blur();
+          // ActiveElement maybe null
+          document.activeElement?.blur?.();
         }
       },
       true,
