@@ -106,7 +106,7 @@ if (process.env.NODE_ENV === "development") {
   }
 
   // this funciton will update after vue-click-to-component-popover is defined
-  function hidePopover() { }
+  let hidePopover = () => {};
 
   // Alt+Click CSS
   document.head.insertAdjacentHTML(
@@ -437,7 +437,7 @@ if (process.env.NODE_ENV === "development") {
       true,
     );
 
-    hidePopover = function () {
+    hidePopover = () => {
       try {
         vueClickToComponentPopoverEl.hidePopover();
         cleanAnchor();
