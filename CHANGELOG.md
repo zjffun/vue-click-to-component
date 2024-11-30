@@ -1,3 +1,7 @@
+# v0.3.4
+
+Fix Alt+LeftClick judgement logic.
+
 # v0.3.3
 
 Update docs.
