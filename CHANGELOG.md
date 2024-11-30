@@ -1,3 +1,7 @@
+# v0.3.6
+
+Fix client type.
+
 # v0.3.5
 
 Fix compatibility.
