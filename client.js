@@ -9,7 +9,7 @@ if (process.env.NODE_ENV === "development") {
     /**
      * @type {NodeListOf<Element>}
      */
-    let targetElList
+    let targetElList;
 
     if (type) {
       targetElList = document.querySelectorAll(
@@ -27,9 +27,9 @@ if (process.env.NODE_ENV === "development") {
   }
 
   /**
- * @param {MouseEvent} clickEvent 
- * @returns {boolean}  
- */
+   * @param {MouseEvent} clickEvent
+   * @returns {boolean}
+   */
   function checkHandleAltClick(clickEvent) {
     if (!clickEvent.altKey || clickEvent.button !== 0) {
       return false;
@@ -82,7 +82,7 @@ if (process.env.NODE_ENV === "development") {
       }
 
       return window.__VUE_CLICK_TO_COMPONENT_URL_FUNCTION__({
-        sourceCodeLocation
+        sourceCodeLocation,
       });
     });
 
