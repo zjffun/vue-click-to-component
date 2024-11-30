@@ -430,8 +430,9 @@ if (process.env.NODE_ENV === "development") {
           setAnchor(elListWithSourceCodeLocationList[0]);
           vueClickToComponentPopoverEl.showPopover();
 
-          // ActiveElement maybe null
-          document.activeElement?.blur?.();
+          if (document.activeElement) {
+            document.activeElement.blur();
+          }
         }
       },
       true,
