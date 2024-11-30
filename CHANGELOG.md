@@ -1,3 +1,7 @@
+# v0.3.5
+
+Fix compatibility.
+
 # v0.3.4
 
 Fix Alt+LeftClick judgement logic.

@@ -19,7 +19,7 @@
   },
   "dependencies": {
     "vue": "^3.3.4",
-    "vue-click-to-component": "^0.3.4",
+    "vue-click-to-component": "^0.3.5",
     "vue-loader": "^17.2.2"
   }
 }
