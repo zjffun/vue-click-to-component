@@ -277,8 +277,9 @@ if (process.env.NODE_ENV === "development") {
             itemEL.classList.add("vue-click-to-component-popover__list__item");
 
             const buttonEl = document.createElement("button");
+            const sourceCodeLocationStr = item.sourceCodeLocation;
             buttonEl.type = "submit";
-            buttonEl.value = item.sourceCodeLocation;
+            buttonEl.value = sourceCodeLocationStr;
             buttonEl.addEventListener("mouseenter", () => {
               setTarget(item.el, "popover");
             });
@@ -286,7 +287,11 @@ if (process.env.NODE_ENV === "development") {
               cleanTarget();
             });
             buttonEl.innerHTML = `<code>&lt;${item.localName}&gt;</code>
-  <cite>${item.sourceCodeLocation}</cite>`;
+<cite>
+  <span dir="ltr">
+    ${sourceCodeLocationStr.replace(/.*(src|pages)/, "$1")}
+  </span>
+</cite>`;
 
             itemEL.appendChild(buttonEl);
 
@@ -366,6 +371,12 @@ if (process.env.NODE_ENV === "development") {
     }
 
     cite {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      text-align: left;
+      /* text-overflow ellipsis on left sida. Inner span element set dir="ltr" */
+      direction: rtl;
       font-weight: normal;
       font-style: normal;
       font-size: 12px;
@@ -388,12 +399,14 @@ if (process.env.NODE_ENV === "development") {
   }
 
   vue-click-to-component-popover {
+    inset: unset;
     position: fixed;
     position-anchor: --vue-click-to-component-component-anchor;
-    position-area: bottom;
-    position-try-fallbacks: flip-block;
-    position-try-order: most-height;
-
+    top: anchor(bottom);
+    justify-self: anchor-center;
+    position-try: most-height flip-block;
+    box-sizing: border-box;
+    max-width: 100%;
     margin: 0;
   }
 </style>

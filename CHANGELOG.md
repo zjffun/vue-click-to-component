@@ -1,3 +1,8 @@
+# v0.3.7
+
+- Add show source code location in the popover feature.
+- Fix the popover size and position.
+
 # v0.3.6
 
 Fix client type.
